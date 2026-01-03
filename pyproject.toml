@@ -1,0 +1,24 @@
+[project]
+name = "rag"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "chromadb>=1.4.0",
+    "faiss-cpu>=1.13.2",
+    "ipykernel>=7.1.0",
+    "jupyter-bokeh>=4.0.5",
+    "jupytext>=1.18.1",
+    "langchain>=1.2.0",
+    "langchain-community>=0.4.1",
+    "langchain-core>=1.2.5",
+    "langchain-ollama>=1.0.1",
+    "langchain-text-splitters>=1.1.0",
+    "panel>=1.8.4",
+    "pymupdf>=1.26.7",
+    "pypdf>=6.5.0",
+    "scikit-learn>=1.7.2",
+    "sentence-transformers>=5.2.0",
+    "tqdm>=4.67.1",
+]
