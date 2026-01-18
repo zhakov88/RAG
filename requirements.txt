@@ -12,3 +12,4 @@ scikit-learn
 langchain-ollama
 panel
 jupyter_bokeh
+ipykernel
