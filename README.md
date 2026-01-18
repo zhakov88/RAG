@@ -1,51 +1,145 @@
-# RAG Chat Interface
+# 📚 RAG – Local Retrieval-Augmented Generation System
 
-A small Retrieval-Augmented Generation (RAG) project with a chat interface and vector-store backed search. The repo includes a simple Panel-based UI (`app.py`) and utilities in `src/rag`.
+This repository contains a **local Retrieval-Augmented Generation (RAG) pipeline** built with Python.  
+It allows you to ingest documents (PDFs), create embeddings, store them in a vector store, and query them using a **local LLM via Ollama**.
 
-**Overview**
-- **Purpose**: Combine retrieval from a vector store with generative responses.
-- **UI**: Panel application served from `app.py`.
+✅ Fully local  
+✅ No data sent to external APIs  
+✅ Suitable for private / confidential documents  
+✅ Includes a Panel-based web UI
 
-**Prerequisites**
-- **Python**: 3.8 or newer
-- **Virtual environment**: recommended (venv or conda)
+Repository: https://github.com/zhakov88/RAG
 
-**Installation**
-1. Clone the repo and change directory:
-	```bash
-	git clone <repo-url>
-	cd RAG
-	```
-2. Create and activate a virtual environment:
-	```bash
-	python3 -m venv .venv
-	source .venv/bin/activate
-	```
-3. Install the project dependencies:
-	```bash
-	pip install -r requirements.txt
-	```
-4. (Optional) Install `uvicorn` for running ASGI apps:
-	```bash
-	pip install "uvicorn[standard]"
-	```
+---
 
-**Run the app**
-- Panel (recommended for the provided UI):
-  ```bash
-  panel serve app.py --dev
-  ```
-  You can also serve multiple notebooks or apps, e.g. `panel serve app.py app2.ipynb --dev`.
-- ASGI / Uvicorn (only if your project exposes an ASGI app):
-  ```bash
-  uvicorn app:app --reload --port 8000
-  ```
-  Replace `app:app` with `module:app` if your ASGI application object has a different name.
+## ✨ Features
 
-**Notes & Troubleshooting**
-- If `panel` command is not found, ensure `panel` is installed and your virtual environment is activated: `pip install panel`.
-- For GPU or large-model environments, ensure additional dependencies (transformers, torch, etc.) are installed as needed.
-- The vector store files live under `vector_store/` — keep that directory when moving the project.
+- Local LLM inference using **Ollama**
+- Modular RAG architecture
+- PDF document ingestion
+- Vector search for retrieval
+- Interactive UI built with **Panel**
+- Clean project structure, suitable for extension
 
-If you want, I can add example `uvicorn`/systemd service files or a short development Makefile.
+---
 
+## 🧱 Tech Stack
+
+- **Python 3.10+**
+- **uv** – fast Python package & environment manager
+- **Ollama** – local LLM runtime
+- **Panel** – interactive web UI
+- Local embedding & vector store pipeline
+
+---
+
+## 🚀 Installation & Setup
+
+### Prerequisites
+
+- Linux / macOS / Windows  
+  👉 On Windows, **WSL is strongly recommended**
+- Git
+- Python **3.10 or newer**
+
+---
+
+## 1️⃣ Install `uv`
+
+### Linux / macOS
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+### Windows (PowerShell)
+```powershell
+irm https://astral.sh/uv/install.ps1 | iex
+```
+
+Verify:
+```bash
+uv --version
+```
+
+---
+
+## 2️⃣ Install Ollama
+
+Download from:
+https://ollama.com/download
+
+Start Ollama:
+```bash
+ollama serve
+```
+
+Pull model:
+```bash
+ollama pull llama3.1:8b
+```
+
+---
+
+## 3️⃣ Clone Repository
+
+```bash
+git clone https://github.com/zhakov88/RAG.git
+cd RAG
+```
+
+---
+
+## 4️⃣ Create Virtual Environment
+
+```bash
+uv venv .venv
+```
+
+Activate:
+
+```bash
+source .venv/bin/activate
+```
+
+---
+
+## 5️⃣ Install Dependencies
+
+```bash
+uv pip install -r requirements.txt
+```
+
+---
+
+## 🗂️ Adding Documents
+
+Place PDFs into:
+
+```
+data/pdf/
+```
+
+---
+
+## ▶️ Run Application (Panel UI)
+
+```bash
+panel serve app.py --dev
+```
+
+Open:
+```
+http://localhost:5006/app
+```
+
+---
+
+## 🔒 Privacy
+
+All processing is local. No data leaves your machine.
+
+---
+
+## 📜 License
+
+MIT
